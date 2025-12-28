@@ -73,7 +73,11 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || "5000", 10);
-  const host = process.env.HOST || "localhost";
+  // Use 0.0.0.0 on Linux (Azure) to accept connections from reverse proxy
+  // Use localhost on Windows for local development
+  // Can be overridden with HOST environment variable
+  const defaultHost = process.platform === "win32" ? "localhost" : "0.0.0.0";
+  const host = process.env.HOST || defaultHost;
   server.listen(port, host, () => {
     log(`serving on ${host}:${port}`);
   });
