@@ -53,12 +53,12 @@ export function Contact() {
     <section
       id="contact"
       ref={sectionRef as any}
-      className="min-h-screen py-20 md:py-32 px-4 bg-card/30 flex items-center"
+      className="min-h-screen py-12 sm:py-16 md:py-20 lg:py-32 px-4 sm:px-6 bg-card/30 flex items-center"
       data-testid="section-contact"
     >
       <div className="max-w-5xl mx-auto w-full">
         <h2
-          className={`text-4xl md:text-5xl font-bold text-center mb-4 scroll-fade-in ${
+          className={`text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 sm:mb-4 scroll-fade-in ${
             isVisible ? "visible" : ""
           }`}
           data-testid="text-contact-heading"
@@ -66,21 +66,21 @@ export function Contact() {
           Let's Build Something
         </h2>
         <p
-          className={`text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto scroll-fade-in stagger-1 ${
+          className={`text-center text-muted-foreground text-base sm:text-lg mb-12 sm:mb-16 max-w-2xl mx-auto scroll-fade-in stagger-1 px-4 ${
             isVisible ? "visible" : ""
           }`}
         >
           Have a project in mind? Let's discuss how we can work together
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
           <div
             className={`lg:col-span-2 scroll-slide-left stagger-2 ${
               isVisible ? "visible" : ""
             }`}
           >
-            <Card className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <Card className="p-6 sm:p-8">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div>
                   <label
                     htmlFor="name"
@@ -95,6 +95,7 @@ export function Contact() {
                     onChange={handleChange}
                     placeholder="Your name"
                     required
+                    className="text-sm sm:text-base"
                     data-testid="input-name"
                   />
                 </div>
@@ -114,6 +115,7 @@ export function Contact() {
                     onChange={handleChange}
                     placeholder="your.email@example.com"
                     required
+                    className="text-sm sm:text-base"
                     data-testid="input-email"
                   />
                 </div>
@@ -133,6 +135,7 @@ export function Contact() {
                     placeholder="Tell me about your project..."
                     rows={6}
                     required
+                    className="text-sm sm:text-base"
                     data-testid="input-message"
                   />
                 </div>
@@ -140,14 +143,14 @@ export function Contact() {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full"
+                  className="w-full text-sm sm:text-base"
                   disabled={isSending}
                   data-testid="button-submit"
                 >
                   {isSending ? (
-                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    <Loader2 className="h-3 w-3 sm:h-4 sm:w-4 mr-2 animate-spin" />
                   ) : (
-                    <Send className="h-4 w-4 mr-2" />
+                    <Send className="h-3 w-3 sm:h-4 sm:w-4 mr-2" />
                   )}
                   {isSending ? "Sending..." : "Send Message"}
                 </Button>
@@ -156,16 +159,18 @@ export function Contact() {
           </div>
 
           <div
-            className={`space-y-6 scroll-slide-right stagger-2 ${
+            className={`space-y-4 sm:space-y-6 scroll-slide-right stagger-2 ${
               isVisible ? "visible" : ""
             }`}
           >
-            <Card className="p-6">
-              <div className="flex items-center gap-3 mb-2">
-                <Mail className="h-5 w-5 text-primary" />
-                <h3 className="font-semibold">Email</h3>
+            <Card className="p-4 sm:p-6">
+              <div className="flex items-center gap-2 sm:gap-3 mb-2">
+                <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-primary flex-shrink-0" />
+                <h3 className="font-semibold text-sm sm:text-base">Email</h3>
               </div>
-              <p className="text-muted-foreground">khanehtisham.a@gmail.com</p>
+              <p className="text-muted-foreground text-sm sm:text-base break-all">
+                khanehtisham.a@gmail.com
+              </p>
             </Card>
 
             {/* <Card className="p-6 hover-elevate active-elevate-2 transition-all cursor-pointer">
@@ -184,18 +189,20 @@ export function Contact() {
               </a>
             </Card> */}
 
-            <Card className="p-6 hover-elevate active-elevate-2 transition-all cursor-pointer">
+            <Card className="p-4 sm:p-6 hover-elevate active-elevate-2 transition-all cursor-pointer">
               <a
                 href="https://www.linkedin.com/in/ehtishamkhan95/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3"
+                className="flex items-center gap-2 sm:gap-3"
                 data-testid="link-linkedin"
               >
-                <SiLinkedin className="h-5 w-5 text-blue-600" />
+                <SiLinkedin className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600 flex-shrink-0" />
                 <div>
-                  <h3 className="font-semibold">LinkedIn</h3>
-                  <p className="text-sm text-muted-foreground">
+                  <h3 className="font-semibold text-sm sm:text-base">
+                    LinkedIn
+                  </h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground">
                     Connect with me
                   </p>
                 </div>

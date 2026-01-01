@@ -57,7 +57,7 @@ export function Hero() {
       <FloatingParticles />
 
       <div
-        className="relative z-10 text-center px-4 max-w-5xl mx-auto transition-transform duration-300"
+        className="relative z-10 text-center px-4 sm:px-6 md:px-8 max-w-5xl mx-auto transition-transform duration-300"
         style={{
           transform: `translate3d(${mousePosition.x * -0.5}px, ${
             mousePosition.y * -0.5
@@ -66,7 +66,7 @@ export function Hero() {
         }}
       >
         <h1
-          className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fade-in text-white"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold mb-4 sm:mb-6 animate-fade-in text-white px-2"
           data-testid="text-hero-name"
           style={{
             transform: "translateZ(30px)",
@@ -77,7 +77,7 @@ export function Hero() {
         </h1>
 
         <h2
-          className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-8 text-white/80 min-h-[3rem] font-mono"
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 sm:mb-8 text-white/80 min-h-[2.5rem] sm:min-h-[3rem] font-mono px-2"
           data-testid="text-hero-title"
           style={{ transform: "translateZ(20px)" }}
         >
@@ -86,7 +86,7 @@ export function Hero() {
         </h2>
 
         <p
-          className="text-lg md:text-xl text-white/70 mb-12 max-w-2xl mx-auto leading-relaxed"
+          className="text-base sm:text-lg md:text-xl text-white/70 mb-8 sm:mb-12 max-w-2xl mx-auto leading-relaxed px-4"
           data-testid="text-hero-description"
           style={{ transform: "translateZ(10px)" }}
         >
@@ -96,13 +96,13 @@ export function Hero() {
         </p>
 
         <div
-          className="flex flex-wrap items-center justify-center gap-4"
+          className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 px-4"
           style={{ transform: "translateZ(40px)" }}
         >
           <Button
             size="lg"
             onClick={scrollToProjects}
-            className="text-base transform transition-all hover:scale-110 hover:rotate-1"
+            className="text-sm sm:text-base w-full sm:w-auto transform transition-all hover:scale-110 hover:rotate-1"
             data-testid="button-view-work"
           >
             View My Work
@@ -115,7 +115,7 @@ export function Hero() {
                 .querySelector("#contact")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="transform transition-all hover:scale-110 hover:-rotate-1 border-white text-white hover:bg-white/10 hover:text-white"
+            className="w-full sm:w-auto transform transition-all hover:scale-110 hover:-rotate-1 border-white text-white hover:bg-white/10 hover:text-white"
             data-testid="button-get-in-touch"
           >
             Get In Touch
@@ -129,11 +129,11 @@ export function Hero() {
             .querySelector("#skills")
             ?.scrollIntoView({ behavior: "smooth" })
         }
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float z-10"
+        className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 animate-float z-10"
         data-testid="button-scroll-indicator"
         style={{ transform: "translateZ(20px)" }}
       >
-        <ChevronDown className="h-8 w-8 text-white/70" />
+        <ChevronDown className="h-6 w-6 sm:h-8 sm:w-8 text-white/70" />
       </button>
     </section>
   );
