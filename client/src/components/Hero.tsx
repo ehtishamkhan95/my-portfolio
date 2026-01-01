@@ -40,7 +40,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden scroll-snap-section"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
       data-testid="section-hero"
       style={{ perspective: "1000px" }}
     >
@@ -51,7 +51,7 @@ export function Hero() {
           transform: `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0) scale(1.1)`,
         }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/70 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black" />
       </div>
 
       <FloatingParticles />
@@ -66,7 +66,7 @@ export function Hero() {
         }}
       >
         <h1
-          className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fade-in"
+          className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fade-in text-white"
           data-testid="text-hero-name"
           style={{
             transform: "translateZ(30px)",
@@ -77,7 +77,7 @@ export function Hero() {
         </h1>
 
         <h2
-          className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-8 text-muted-foreground min-h-[3rem] font-mono"
+          className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-8 text-white/80 min-h-[3rem] font-mono"
           data-testid="text-hero-title"
           style={{ transform: "translateZ(20px)" }}
         >
@@ -86,7 +86,7 @@ export function Hero() {
         </h2>
 
         <p
-          className="text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-white/70 mb-12 max-w-2xl mx-auto leading-relaxed"
           data-testid="text-hero-description"
           style={{ transform: "translateZ(10px)" }}
         >
@@ -115,7 +115,7 @@ export function Hero() {
                 .querySelector("#contact")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="transform transition-all hover:scale-110 hover:-rotate-1"
+            className="transform transition-all hover:scale-110 hover:-rotate-1 border-white text-white hover:bg-white/10 hover:text-white"
             data-testid="button-get-in-touch"
           >
             Get In Touch
@@ -133,7 +133,7 @@ export function Hero() {
         data-testid="button-scroll-indicator"
         style={{ transform: "translateZ(20px)" }}
       >
-        <ChevronDown className="h-8 w-8 text-muted-foreground" />
+        <ChevronDown className="h-8 w-8 text-white/70" />
       </button>
     </section>
   );

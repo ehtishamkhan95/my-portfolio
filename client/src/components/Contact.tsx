@@ -40,37 +40,52 @@ export function Contact() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
     }));
   };
 
   return (
-    <section 
-      id="contact" 
+    <section
+      id="contact"
       ref={sectionRef as any}
-      className="min-h-screen py-20 md:py-32 px-4 bg-card/30 scroll-snap-section flex items-center" 
+      className="min-h-screen py-20 md:py-32 px-4 bg-card/30 flex items-center"
       data-testid="section-contact"
     >
       <div className="max-w-5xl mx-auto w-full">
-        <h2 
-          className={`text-4xl md:text-5xl font-bold text-center mb-4 scroll-fade-in ${isVisible ? 'visible' : ''}`}
+        <h2
+          className={`text-4xl md:text-5xl font-bold text-center mb-4 scroll-fade-in ${
+            isVisible ? "visible" : ""
+          }`}
           data-testid="text-contact-heading"
         >
           Let's Build Something
         </h2>
-        <p className={`text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto scroll-fade-in stagger-1 ${isVisible ? 'visible' : ''}`}>
+        <p
+          className={`text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto scroll-fade-in stagger-1 ${
+            isVisible ? "visible" : ""
+          }`}
+        >
           Have a project in mind? Let's discuss how we can work together
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className={`lg:col-span-2 scroll-slide-left stagger-2 ${isVisible ? 'visible' : ''}`}>
+          <div
+            className={`lg:col-span-2 scroll-slide-left stagger-2 ${
+              isVisible ? "visible" : ""
+            }`}
+          >
             <Card className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Name
                   </label>
                   <Input
@@ -85,7 +100,10 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Email
                   </label>
                   <Input
@@ -101,7 +119,10 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium mb-2"
+                  >
                     Message
                   </label>
                   <Textarea
@@ -116,10 +137,10 @@ export function Contact() {
                   />
                 </div>
 
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full" 
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full"
                   disabled={isSending}
                   data-testid="button-submit"
                 >
@@ -134,16 +155,20 @@ export function Contact() {
             </Card>
           </div>
 
-          <div className={`space-y-6 scroll-slide-right stagger-2 ${isVisible ? 'visible' : ''}`}>
+          <div
+            className={`space-y-6 scroll-slide-right stagger-2 ${
+              isVisible ? "visible" : ""
+            }`}
+          >
             <Card className="p-6">
               <div className="flex items-center gap-3 mb-2">
                 <Mail className="h-5 w-5 text-primary" />
                 <h3 className="font-semibold">Email</h3>
               </div>
-              <p className="text-muted-foreground">your.email@example.com</p>
+              <p className="text-muted-foreground">khanehtisham.a@gmail.com</p>
             </Card>
 
-            <Card className="p-6 hover-elevate active-elevate-2 transition-all cursor-pointer">
+            {/* <Card className="p-6 hover-elevate active-elevate-2 transition-all cursor-pointer">
               <a
                 href="https://github.com"
                 target="_blank"
@@ -157,11 +182,11 @@ export function Contact() {
                   <p className="text-sm text-muted-foreground">View my code</p>
                 </div>
               </a>
-            </Card>
+            </Card> */}
 
             <Card className="p-6 hover-elevate active-elevate-2 transition-all cursor-pointer">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/ehtishamkhan95/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3"
@@ -170,7 +195,9 @@ export function Contact() {
                 <SiLinkedin className="h-5 w-5 text-blue-600" />
                 <div>
                   <h3 className="font-semibold">LinkedIn</h3>
-                  <p className="text-sm text-muted-foreground">Connect with me</p>
+                  <p className="text-sm text-muted-foreground">
+                    Connect with me
+                  </p>
                 </div>
               </a>
             </Card>

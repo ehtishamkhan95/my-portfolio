@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { TiltCard } from "./TiltCard";
@@ -9,89 +15,114 @@ import { ProjectModal } from "./ProjectModal";
 import ecommerceImg from "@assets/generated_images/E-commerce_project_screenshot_339f69f9.png";
 import chatImg from "@assets/generated_images/Chat_app_project_screenshot_092eefc8.png";
 import taskImg from "@assets/generated_images/Task_manager_project_screenshot_e4941a57.png";
+import inndirectlyImg from "@images/inndirectly.png";
+import ourtopclinicImg from "@images/ourtopclinic.png";
+import cactusjackdesignethosImg from "@images/cactusjackdesignethos.png";
+import supplierscatalogsImg from "@images/supplierscatalogs.png";
+import favImg from "@images/fav.png";
 
 const projects = [
   {
     id: 1,
-    title: "E-Commerce Platform",
-    description: "Full-stack online shopping platform with cart, payments, and admin dashboard",
-    image: ecommerceImg,
+    title: "Inndirectly",
+    description:
+      "Full-stack online vacation rental platform subscriptions, user and admin dashboards",
+    image: inndirectlyImg,
     tech: ["React", "Node.js", "MongoDB", "Stripe"],
     github: "https://github.com",
-    live: "https://demo.com",
-    details: "A comprehensive e-commerce solution featuring user authentication, product catalog, shopping cart functionality, secure payment processing with Stripe, order management, and an admin dashboard for inventory control. Built with React for a responsive frontend, Express.js for RESTful APIs, and MongoDB for scalable data storage.",
+    live: "https://inndirectly.com",
+    details:
+      "A vacation rental platform with a subscription model, user and admin dashboards. Integrated with iCal for providing availability to guests, and sending instant notifications to guests when a desired property becomes available.",
     isProduction: true,
   },
   {
     id: 2,
-    title: "Real-Time Chat Application",
-    description: "Modern chat app with real-time messaging and user presence",
-    image: chatImg,
+    title: "OurTopClinic",
+    description:
+      "A medical clinic website with a booking system and online consultations.",
+    image: ourtopclinicImg,
     tech: ["React", "Socket.io", "Express", "MongoDB"],
     github: "https://github.com",
-    live: "https://demo.com",
-    details: "Real-time messaging application enabling instant communication between users. Features include online/offline status indicators, typing indicators, message history, and group chat capabilities. Implemented using WebSocket connections via Socket.io for bi-directional communication and MongoDB for message persistence.",
+    live: "https://www.ourtopclinic.com/",
+    details:
+      "A medical clinic website with a booking system and online consultations. Implemented full EMR system with appointment scheduling, patient management, and billing. Integrated with pharmacy and lab systems.",
   },
   {
     id: 3,
-    title: "Task Management Dashboard",
-    description: "Productivity tool for managing projects and tracking progress",
-    image: taskImg,
+    title: "Cactus Jack Design Ethos",
+    description: "An LMS for the Cactus Jack brand for design students.",
+    image: cactusjackdesignethosImg,
     tech: ["React", "Node.js", "MongoDB", "TailwindCSS"],
     github: "https://github.com",
-    live: "https://demo.com",
-    details: "Kanban-style task management system for organizing projects and tracking team productivity. Features drag-and-drop task organization, priority levels, due dates, progress tracking, and team collaboration. Built with a modern UI using Tailwind CSS and powered by a robust Node.js backend with MongoDB for data management.",
+    live: "https://cactusjackdesignethos.com/",
+    details:
+      "LMS for the Cactus Jack brand for design students. Features a course catalog, a dashboard for students to view their courses and progress, and a admin dashboard to manage courses and students.",
   },
   {
     id: 4,
-    title: "Portfolio Website",
-    description: "Animated professional portfolio with 3D effects and smooth scrolling",
-    image: ecommerceImg,
+    title: "Suppliers Catalogs",
+    description:
+      "A supplier catalog website for drop shippers to find products to sell and upload to their own store.",
+    image: supplierscatalogsImg,
     tech: ["React", "TailwindCSS", "Framer Motion", "Three.js"],
     github: "https://github.com",
-    live: "https://demo.com",
-    details: "A high-performance personal portfolio showcasing creative development skills. Features custom 3D particle systems, intersection observers for scroll animations, and a fully responsive glassmorphism design.",
+    live: "https://inventory-app-production.azurewebsites.net/",
+    details:
+      "A supplier catalog website for drop shippers to find products to sell and upload to their own store. Users can pick from a list of suppliers, and then add to their own stores on Shopify and Ebay. Implements a subscription model for users giveng access to multple tiers of suppliers.",
   },
   {
     id: 5,
-    title: "Social Media API",
-    description: "Scalable backend for a social networking platform",
-    image: chatImg,
+    title: "Fav",
+    description: "Ecommerce marketplace for buying and selling products.",
+    image: favImg,
     tech: ["Node.js", "Express", "MongoDB", "Redis"],
     github: "https://github.com",
-    live: "https://demo.com",
-    details: "A robust RESTful API built to handle high-traffic social interactions. Includes JWT authentication, image upload integration, and real-time notification support.",
+    live: "https://fav-v1.netlify.app",
+    details:
+      "An ecommecrce marketplace for buying and selling products. Similar to Vinted, with options to negotiate prices for both buyers and sellers.",
   },
 ];
 
 export function Projects() {
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof projects)[0] | null
+  >(null);
   const { ref: sectionRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
-  const productionProject = projects.find(p => p.isProduction);
-  const otherProjects = projects.filter(p => !p.isProduction);
+  const productionProject = projects.find((p) => p.isProduction);
+  const otherProjects = projects.filter((p) => !p.isProduction);
 
   return (
     <>
-      <section 
-        id="projects" 
+      <section
+        id="projects"
         ref={sectionRef as any}
-        className="min-h-screen py-20 md:py-32 px-4 bg-card/30 scroll-snap-section flex items-center" 
+        className="min-h-screen py-20 md:py-32 px-4 bg-card/30 flex items-center"
         data-testid="section-projects"
       >
         <div className="max-w-6xl mx-auto w-full">
-          <h2 
-            className={`text-4xl md:text-5xl font-bold text-center mb-4 scroll-fade-in ${isVisible ? 'visible' : ''}`}
+          <h2
+            className={`text-4xl md:text-5xl font-bold text-center mb-4 scroll-fade-in ${
+              isVisible ? "visible" : ""
+            }`}
             data-testid="text-projects-heading"
           >
             Featured Projects
           </h2>
-          <p className={`text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto scroll-fade-in stagger-1 ${isVisible ? 'visible' : ''}`}>
+          <p
+            className={`text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto scroll-fade-in stagger-1 ${
+              isVisible ? "visible" : ""
+            }`}
+          >
             A showcase of my recent work demonstrating MERN stack expertise
           </p>
 
           <div className="space-y-12">
             {productionProject && (
-              <div className={`scroll-fade-in stagger-2 ${isVisible ? 'visible' : ''}`}>
+              <div
+                className={`scroll-fade-in stagger-2 ${
+                  isVisible ? "visible" : ""
+                }`}
+              >
                 <TiltCard
                   className="w-full"
                   max={3}
@@ -114,10 +145,16 @@ export function Projects() {
                       </div>
                       <div className="p-8 flex flex-col justify-center">
                         <div className="flex items-center gap-2 mb-4">
-                          <Badge className="bg-primary text-primary-foreground animate-pulse">LIVE IN PRODUCTION</Badge>
+                          <Badge className="bg-primary text-primary-foreground animate-pulse">
+                            LIVE IN PRODUCTION
+                          </Badge>
                         </div>
-                        <CardTitle className="text-3xl mb-4">{productionProject.title}</CardTitle>
-                        <CardDescription className="text-lg mb-6">{productionProject.description}</CardDescription>
+                        <CardTitle className="text-3xl mb-4">
+                          {productionProject.title}
+                        </CardTitle>
+                        <CardDescription className="text-lg mb-6">
+                          {productionProject.description}
+                        </CardDescription>
                         <div className="flex flex-wrap gap-2 mb-8">
                           {productionProject.tech.map((tech) => (
                             <Badge key={tech} variant="secondary">
@@ -135,7 +172,7 @@ export function Projects() {
                             }}
                           >
                             <ExternalLink className="h-4 w-4 mr-2" />
-                            Visit Production Site
+                            Visit Site
                           </Button>
                         </div>
                       </div>
@@ -149,7 +186,9 @@ export function Projects() {
               {otherProjects.map((project, index) => (
                 <div
                   key={project.id}
-                  className={`scroll-fade-in stagger-${index + 3} ${isVisible ? 'visible' : ''}`}
+                  className={`scroll-fade-in stagger-${index + 3} ${
+                    isVisible ? "visible" : ""
+                  }`}
                 >
                   <TiltCard
                     className="h-full"
@@ -171,17 +210,32 @@ export function Projects() {
                         />
                       </div>
                       <CardHeader className="p-4">
-                        <CardTitle className="text-lg">{project.title}</CardTitle>
-                        <CardDescription className="text-sm line-clamp-2">{project.description}</CardDescription>
+                        <CardTitle className="text-lg">
+                          {project.title}
+                        </CardTitle>
+                        <CardDescription className="text-sm line-clamp-2">
+                          {project.description}
+                        </CardDescription>
                       </CardHeader>
                       <CardContent className="p-4 pt-0 flex-1 flex flex-col justify-end">
                         <div className="flex flex-wrap gap-1 mb-4">
                           {project.tech.slice(0, 3).map((tech) => (
-                            <Badge key={tech} variant="secondary" className="text-[10px] px-1.5 py-0">
+                            <Badge
+                              key={tech}
+                              variant="secondary"
+                              className="text-[10px] px-1.5 py-0"
+                            >
                               {tech}
                             </Badge>
                           ))}
-                          {project.tech.length > 3 && <Badge variant="secondary" className="text-[10px] px-1.5 py-0">+{project.tech.length - 3}</Badge>}
+                          {project.tech.length > 3 && (
+                            <Badge
+                              variant="secondary"
+                              className="text-[10px] px-1.5 py-0"
+                            >
+                              +{project.tech.length - 3}
+                            </Badge>
+                          )}
                         </div>
                         <div className="flex gap-2">
                           <Button
@@ -193,7 +247,7 @@ export function Projects() {
                             }}
                           >
                             <ExternalLink className="h-3 w-3 mr-1" />
-                            Demo
+                            Visit Site
                           </Button>
                         </div>
                       </CardContent>

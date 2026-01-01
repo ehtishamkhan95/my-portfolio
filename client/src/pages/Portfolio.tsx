@@ -8,7 +8,7 @@ import { Footer } from "@/components/Footer";
 
 export default function Portfolio() {
   return (
-    <div className="scroll-snap-container">
+    <div>
       <Navigation />
       <main>
         <Hero />

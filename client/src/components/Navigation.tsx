@@ -42,7 +42,7 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           <button
             onClick={() => scrollToSection("#home")}
-            className="text-xl font-bold text-primary hover-elevate active-elevate-2 px-3 py-2 rounded-md"
+            className="text-xl font-bold text-white hover-elevate active-elevate-2 px-3 py-2 rounded-md"
             data-testid="button-logo"
           >
             &lt;Dev/&gt;
@@ -54,6 +54,7 @@ export function Navigation() {
                 key={item.name}
                 variant="ghost"
                 onClick={() => scrollToSection(item.href)}
+                className="text-white hover:bg-white/10 hover:text-white"
                 data-testid={`link-nav-${item.name.toLowerCase()}`}
               >
                 {item.name}
@@ -84,7 +85,7 @@ export function Navigation() {
                 key={item.name}
                 variant="ghost"
                 onClick={() => scrollToSection(item.href)}
-                className="w-full justify-start"
+                className="w-full justify-start text-white hover:bg-white/10 hover:text-white"
                 data-testid={`link-mobile-${item.name.toLowerCase()}`}
               >
                 {item.name}

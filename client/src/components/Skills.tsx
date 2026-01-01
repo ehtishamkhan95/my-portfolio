@@ -24,7 +24,7 @@ export function Skills() {
     <section 
       id="skills" 
       ref={sectionRef as any}
-      className="min-h-screen py-20 md:py-32 px-4 scroll-snap-section flex items-center" 
+      className="min-h-screen py-20 md:py-32 px-4 flex items-center" 
       data-testid="section-skills"
     >
       <div className="max-w-6xl mx-auto w-full">

@@ -230,19 +230,6 @@
     border-radius: inherit;
   }
 
-  /* Scroll snap container */
-  .scroll-snap-container {
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-    overflow-y: auto;
-    height: 100vh;
-  }
-
-  .scroll-snap-section {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-  }
-
   /* Scroll animations */
   .scroll-fade-in {
     opacity: 0;
